@@ -1,0 +1,20 @@
+.nav {
+
+  background-color: grey;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+
+  ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+  }
+}
