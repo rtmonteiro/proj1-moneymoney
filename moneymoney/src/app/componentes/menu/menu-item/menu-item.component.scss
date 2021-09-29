@@ -1,0 +1,22 @@
+li {
+  text-transform: capitalize;
+  padding: 10px;
+  width: 100px;
+  box-sizing: content-box;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 5px;
+    color: white;
+    i {
+      font-size: 2rem;
+    }
+    span {
+      font: 600 16px 'Roboto';
+    }
+  }
+}
