@@ -1,0 +1,35 @@
+.item {
+  cursor: pointer;
+  list-style: none;
+  width: clamp(200px, 90vw, 350px);
+  height: auto;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+
+  &--value {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 10px 0 10px;
+  }
+
+  &--group {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+    i {
+      font-size: 16px;
+    }
+  }
+
+  &--date {
+    padding: 5px 10px;
+    background: slategrey;
+    color: white;
+  }
+}

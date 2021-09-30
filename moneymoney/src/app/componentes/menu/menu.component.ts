@@ -16,12 +16,12 @@ export class MenuComponent implements OnInit {
     this.pages = [
       {
         name: 'transactions',
-        link: 'home',
+        link: 'transactions',
         icon: 'payments'
       },
       {
-        name: 'graphs',
-        link: 'graphs',
+        name: 'graphics',
+        link: 'graphics',
         icon: 'bar_chart'
       },
       {

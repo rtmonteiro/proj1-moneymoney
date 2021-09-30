@@ -1,1 +1,7 @@
-Começo
+<h1>Transactions</h1>
+
+<ul class="list">
+  <li *ngFor="let transaction of transactions">
+    <mm-transaction-item [transaction]="transaction"></mm-transaction-item>
+  </li>
+</ul>

@@ -1,4 +1,4 @@
-interface IUser {
+export interface IUser {
     id: number;
     fullName: string;
     baseCurrency: string;
