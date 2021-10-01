@@ -1,10 +1,10 @@
 export interface IUser {
-    id: string;
-    fullName: string;
-    baseCurrency: string;
-    email: string;
-    username: string;
-    password: string;
-    urlImage: string;
-
+  id: string;
+  name: string;
+  baseCurrency?: any;
+  email: any;
+  createdAt?: any;
+  userName: any;
+  password: any;
+  urlImage?: any;
 }

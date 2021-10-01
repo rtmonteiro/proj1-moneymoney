@@ -11,23 +11,21 @@ import com.pi.moneymoney.document.User;
 import com.pi.moneymoney.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/user")
-public class UserController {
-    
+public class UserController{
 
     @Autowired
     UserService service;
 
-    GroupController group = new GroupController();
-    TransactionController transaction = new TransactionController();
+    @Autowired
+    GroupController group ;
+
+    @Autowired
+    TransactionController transaction;
 
     @GetMapping(value = "")
     public List<User> getUser(){
@@ -56,8 +54,7 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public User login(@RequestBody LoginForm user){
-        User  login= service.findByEmail(user.getEmail());
-        return login;
+        return service.findByEmail(user.getEmail());
     }
 
 

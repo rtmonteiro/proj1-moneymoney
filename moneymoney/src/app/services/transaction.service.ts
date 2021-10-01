@@ -46,6 +46,6 @@ export class TransactionService {
   }
 
   getTransactionsByGroup(idUser: string): Observable<Map<IGroup, ITransaction[]>> {
-    return this.http.get<Map<IGroup, ITransaction[]>>(`${this.urlPath}/transaction/usergroups/${idUser}`, { headers: this.headers });
+    return this.http.get<Map<IGroup, ITransaction[]>>(`${this.urlPath}/user/groups/${idUser}`, { headers: this.headers });
   }
 }
