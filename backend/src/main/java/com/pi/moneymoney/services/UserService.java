@@ -28,5 +28,9 @@ public class UserService implements Services<User>{
     public User save(User objecT) {
         return rp.save(objecT);
     }
+
+    public User findByEmail(String email) {
+        return rp.findByEmail(email);
+    }
     
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.pi.moneymoney.document.Group;
+import com.pi.moneymoney.document.LoginForm;
 import com.pi.moneymoney.document.Transaction;
 import com.pi.moneymoney.document.User;
 import com.pi.moneymoney.services.UserService;
@@ -43,13 +44,20 @@ public class UserController {
         return service.save(user);
     }
 
-    public Map<Group,List<Transaction>> getTransactionGroupedByGroup(String id){
+    @GetMapping(value = "/groups/{id}")
+    public Map<Group,List<Transaction>> getTransactionGroupedByGroup(@PathVariable String id){
         Map<Group,List<Transaction>> groupedTransections = new HashMap<>();
         List<Group> groupsUser = group.findByIdUser(id);
         for (Group group : groupsUser) {
             groupedTransections.put(group, transaction.getTransactionsByUserAndGroup(id, group.getId()));
         }
         return groupedTransections;
+    }
+
+    @PostMapping(value = "/login")
+    public User login(@RequestBody LoginForm user){
+        User  login= service.findByEmail(user.getEmail());
+        return login;
     }
 
 
