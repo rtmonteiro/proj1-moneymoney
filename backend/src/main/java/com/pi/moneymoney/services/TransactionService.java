@@ -40,4 +40,8 @@ public class TransactionService implements Services<Transaction>{
         rp.delete(transaction);
         return transaction;
     }
+
+    public List<Transaction> findByUserAndGroup(String idUser, String idGroup) {
+        return rp.findByUserAndGroup(idUser, idGroup);
+    }
 }

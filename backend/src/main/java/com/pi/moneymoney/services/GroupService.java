@@ -34,4 +34,8 @@ public class GroupService implements Services<Group>{
         rp.delete(group);
         return group;
     }
+
+    public List<Group> findByIdUser(String id) {
+        return rp.findByUser(id);
+    }
 }

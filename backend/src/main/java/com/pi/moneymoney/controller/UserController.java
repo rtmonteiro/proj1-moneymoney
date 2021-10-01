@@ -1,7 +1,11 @@
 package com.pi.moneymoney.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.pi.moneymoney.document.Group;
+import com.pi.moneymoney.document.Transaction;
 import com.pi.moneymoney.document.User;
 import com.pi.moneymoney.services.UserService;
 
@@ -21,6 +25,9 @@ public class UserController {
     @Autowired
     UserService service;
 
+    GroupController group = new GroupController();
+    TransactionController transaction = new TransactionController();
+
     @GetMapping(value = "")
     public List<User> getUser(){
         return service.findAll();
@@ -36,6 +43,14 @@ public class UserController {
         return service.save(user);
     }
 
+    public Map<Group,List<Transaction>> getTransactionGroupedByGroup(String id){
+        Map<Group,List<Transaction>> groupedTransections = new HashMap<>();
+        List<Group> groupsUser = group.findByIdUser(id);
+        for (Group group : groupsUser) {
+            groupedTransections.put(group, transaction.getTransactionsByUserAndGroup(id, group.getId()));
+        }
+        return groupedTransections;
+    }
 
 
 }

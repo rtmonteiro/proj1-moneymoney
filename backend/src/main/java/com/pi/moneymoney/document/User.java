@@ -2,6 +2,7 @@ package com.pi.moneymoney.document;
 
 import java.sql.Timestamp;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,6 +18,7 @@ public class User {
     private String name;
     private String baseCurrency;
     private String email;
+    @CreatedDate
     private Timestamp createdAt;
     private String userName;
     

@@ -44,4 +44,10 @@ public class GroupController {
         service.delete(group);
         return group;
     }
+
+    @GetMapping(value = "/user/{id}")
+    public List<Group> findByIdUser(@PathVariable String id) {
+        return service.findByIdUser(id);
+        
+    }
 }

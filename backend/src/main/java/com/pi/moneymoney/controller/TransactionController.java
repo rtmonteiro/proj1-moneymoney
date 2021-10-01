@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pi.moneymoney.document.Transaction;
 import com.pi.moneymoney.repository.TransactionRepository;
+import com.pi.moneymoney.services.TransactionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/transaction")
 public class TransactionController {
     @Autowired
-    TransactionRepository service;
+    TransactionService service;
 
     @GetMapping(value = "")
     public List<Transaction> getTransaction(){
@@ -29,7 +31,7 @@ public class TransactionController {
 
     @GetMapping(value = "/{id}")
     public Transaction getTransactionId(@PathVariable String id){
-        return service.findById(id).get();
+        return service.findById(id);
     }
     
     @PostMapping(value = "")
@@ -39,8 +41,11 @@ public class TransactionController {
 
     @DeleteMapping(value = "/{id}")
     public Transaction deleteTransaction(@PathVariable String id){
-        Transaction transaction = service.findById(id).get();
-        service.delete(transaction);
-        return transaction;
+        return service.delete(id);
+    }
+
+    @GetMapping(value = "/usergroups")
+    public List<Transaction> getTransactionsByUserAndGroup(@RequestParam String idUser, @RequestParam String idGroup) {
+        return service.findByUserAndGroup(idUser,idGroup);
     }
 }
