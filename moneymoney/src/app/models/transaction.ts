@@ -1,9 +1,10 @@
-import {IGroup} from './group';
-
 export interface ITransaction{
-    id: number;
-    transaction_date: Date;
-    value: number;
-    currency: string;
-    group?: IGroup;
+  id: string;
+  idGroup: string;
+  createdAt?: any;
+  transactionDate?: any;
+  value: number;
+  idUser: string;
+  currency?: any;
+  deletedAt?: any;
 }

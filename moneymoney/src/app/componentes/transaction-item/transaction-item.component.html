@@ -1,8 +1,8 @@
 <div class="item" [routerLink]="[transaction.id]">
     <span class="item--value">{{transaction.value | currency:transaction.currency}}</span>
 
-    <div class="item--group" *ngIf="transaction.group">
-        {{transaction.group.name}} | <i class="material-icons">{{transaction.group.urlImage}}</i>
-    </div>
-    <div class="item--date">{{transaction.transaction_date | date | uppercase}}</div>
+<!--    <div class="item&#45;&#45;group" *ngIf="transaction.group">-->
+<!--        {{transaction.group.name}} | <i class="material-icons">{{transaction.group.urlImage}}</i>-->
+<!--    </div>-->
+    <div class="item--date">{{transaction.createdAt | date | uppercase}}</div>
 </div>

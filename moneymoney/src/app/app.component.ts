@@ -1,10 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {
+  ArcElement,
+  BarController,
+  BarElement,
+  CategoryScale,
+  Chart,
+  DoughnutController,
+  LinearScale,
+  LineController,
+  LineElement,
+  PieController,
+  PointElement,
+  PolarAreaController,
+  RadarController,
+  RadialLinearScale,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'moneymoney';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    Chart.register(
+      ArcElement,
+      BarController,
+      BarElement,
+      CategoryScale,
+      DoughnutController,
+      LinearScale,
+      LineController,
+      LineElement,
+      PieController,
+      PointElement,
+      PolarAreaController,
+      RadarController,
+      RadialLinearScale,
+      Title,
+      Tooltip,
+      Legend,
+    );
+  }
 }

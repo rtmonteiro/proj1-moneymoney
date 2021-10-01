@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {switchMap, tap} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 import {TransactionService} from '../../services/transaction.service';
 import {ITransaction} from '../../models/transaction';
 
@@ -20,7 +20,7 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .pipe(switchMap(({id}) => this.transactionService.getTransaction(Number(id))))
+      .pipe(switchMap(({id}) => this.transactionService.getTransaction(id)))
       .subscribe( (transaction) => {
         if (transaction === undefined) { this.router.navigate(['not-found']); }
         this.transaction = transaction;
