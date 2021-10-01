@@ -6,8 +6,11 @@ import com.pi.moneymoney.document.Group;
 import com.pi.moneymoney.repository.GroupRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class GroupService implements Service<Group>{
+@Service
+public class GroupService implements Services<Group>{
+
     @Autowired
     GroupRepository rp;
 
@@ -17,7 +20,7 @@ public class GroupService implements Service<Group>{
     }
 
     @Override
-    public Group findById(Integer id) {
+    public Group findById(String id) {
         return rp.findById(id).get();
     }
 
@@ -28,7 +31,7 @@ public class GroupService implements Service<Group>{
 
     public Group delete(Group group){
 
-        // TODO
+        rp.delete(group);
         return group;
     }
 }

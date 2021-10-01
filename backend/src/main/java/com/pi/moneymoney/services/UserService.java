@@ -6,8 +6,10 @@ import com.pi.moneymoney.document.User;
 import com.pi.moneymoney.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class UserService implements Service<User>{
+@Service
+public class UserService implements Services<User>{
 
     @Autowired
     UserRepository rp;
@@ -18,7 +20,7 @@ public class UserService implements Service<User>{
     }
 
     @Override
-    public User findById(Integer id) {
+    public User findById(String id) {
         return rp.findById(id).get();
     }
 

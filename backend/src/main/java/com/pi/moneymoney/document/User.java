@@ -1,6 +1,6 @@
 package com.pi.moneymoney.document;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
     private String baseCurrency;
@@ -31,7 +31,7 @@ public class User {
     private String password;
     private String urlImage;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -83,7 +83,7 @@ public class User {
         this.urlImage = urlImage;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

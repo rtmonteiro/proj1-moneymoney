@@ -1,6 +1,6 @@
 package com.pi.moneymoney.document;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Transaction {
     
     @Id
-    private Integer id;
+    private String id;
     // Id grupo
     private Timestamp createdAt;
     private Date transactionDate;
@@ -19,10 +19,10 @@ public class Transaction {
     private String currency;
     private Timestamp deletedAt;
     
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
