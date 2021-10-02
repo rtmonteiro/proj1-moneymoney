@@ -20,6 +20,7 @@ public class Transaction {
     private String idUser;
     private String currency;
     private Timestamp deletedAt;
+    private String description;
 
     public String getIdGroup() {
         return idGroup;
@@ -84,4 +85,11 @@ public class Transaction {
     }
 
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
