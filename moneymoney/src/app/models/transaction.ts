@@ -1,7 +1,8 @@
 export interface ITransaction{
-  id: string;
+  id?: string;
   idGroup: string;
   createdAt?: any;
+  description: string;
   transactionDate?: any;
   value: number;
   idUser: string;

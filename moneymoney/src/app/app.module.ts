@@ -22,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NewTransactionComponent } from './pages/transaction/new-transaction/new-transaction.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ProfileComponent,
     TransactionComponent,
     TransactionsComponent,
-    LoginComponent
+    LoginComponent,
+    NewTransactionComponent
   ],
   imports: [
     BrowserModule,
