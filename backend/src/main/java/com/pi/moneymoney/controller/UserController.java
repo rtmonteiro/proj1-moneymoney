@@ -38,23 +38,37 @@ public class UserController{
     }
     
     @PostMapping(value = "")
-    public User save(@RequestBody User user){
-        return service.save(user);
+    public User save(@RequestBody User user) throws Exception{
+
+        if(getUserEmail(user.getEmail()) == null)
+            return service.save(user);
+        throw new Exception("E-mail ja cadastrado");
+    }
+
+    private User getUserEmail(String email) {
+        return service.findByEmail(email);
     }
 
     @GetMapping(value = "/groups/{id}")
-    public Map<Group,List<Transaction>> getTransactionGroupedByGroup(@PathVariable String id){
-        Map<Group,List<Transaction>> groupedTransections = new HashMap<>();
+    public Map<String,List<Transaction>> getTransactionGroupedByGroup(@PathVariable String id){
+        Map<String,List<Transaction>> groupedTransections = new HashMap<>();
         List<Group> groupsUser = group.findByIdUser(id);
         for (Group group : groupsUser) {
-            groupedTransections.put(group, transaction.getTransactionsByUserAndGroup(id, group.getId()));
+            groupedTransections.put(group.getName(), transaction.getTransactionsByUserAndGroup(id, group.getId()));
         }
         return groupedTransections;
     }
 
     @PostMapping(value = "/login")
-    public User login(@RequestBody LoginForm user){
-        return service.findByEmail(user.getEmail());
+    public User login(@RequestBody LoginForm user) throws Exception{
+        User login = service.findByEmail(user.getEmail());
+        if(login == null)
+            throw new Exception("E-mail não cadastrado");
+        if(login.getPassword().equalsIgnoreCase(user.getPassword())){
+            return login;
+        }
+        throw new Exception("Senha informada está incorreta");
+
     }
 
 

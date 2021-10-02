@@ -32,5 +32,6 @@ public class UserService implements Services<User>{
     public User findByEmail(String email) {
         return rp.findByEmail(email);
     }
+
     
 }
