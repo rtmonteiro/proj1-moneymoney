@@ -18,6 +18,10 @@ import { TransactionsComponent } from './pages/transactions/transactions.compone
 import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ChartjsModule} from '@ctrl/ngx-chartjs';
+import { LoginComponent } from './pages/login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,18 +34,23 @@ import {ChartjsModule} from '@ctrl/ngx-chartjs';
     TransactionItemComponent,
     ProfileComponent,
     TransactionComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatIconModule,
-        MatButtonModule,
-        MatTabsModule,
-        ChartjsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTabsModule,
+    ChartjsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

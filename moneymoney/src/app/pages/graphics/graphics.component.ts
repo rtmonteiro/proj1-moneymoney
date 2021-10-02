@@ -29,16 +29,16 @@ export class GraphicsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.transactionService.getTransactionsByGroup(this.userService.user.id)
-    this.transactionService.getTransactionsByGroup('0')
+    this.transactionService.getTransactionsByGroup(this.userService.user.id)
       .subscribe( groups => {
         const data = new Array<number>();
 
-        for (const group of groups.values()) {
-          data.push(group.reduce((acc, value) => acc + value.value, 0));
+        for (const group of Object.values(groups)) {
+          data.push(group.reduce((acc, transaction) => acc + transaction.value, 0));
         }
 
         this.data = {
-          labels: [...groups.keys()],
+          labels: Object.keys(groups),
           datasets: [
             {
               label: 'My First Dataset',

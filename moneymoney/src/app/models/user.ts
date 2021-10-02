@@ -1,7 +1,7 @@
 export interface IUser {
-  id: string;
+  id?: string;
   name: string;
-  baseCurrency?: any;
+  baseCurrency: any;
   email: any;
   createdAt?: any;
   userName: any;

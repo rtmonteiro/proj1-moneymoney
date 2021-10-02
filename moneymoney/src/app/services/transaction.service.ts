@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ITransaction} from '../models/transaction';
-import {IGroup} from '../models/group';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -45,7 +44,7 @@ export class TransactionService {
     return this.http.get<ITransaction>(`${this.urlPath}/transaction/${id}`, { headers: this.headers });
   }
 
-  getTransactionsByGroup(idUser: string): Observable<Map<IGroup, ITransaction[]>> {
-    return this.http.get<Map<IGroup, ITransaction[]>>(`${this.urlPath}/user/groups/${idUser}`, { headers: this.headers });
+  getTransactionsByGroup(idUser: string): Observable<Map<string, ITransaction[]>> {
+    return this.http.get<Map<string, ITransaction[]>>(`${this.urlPath}/user/groups/${idUser}`, { headers: this.headers });
   }
 }

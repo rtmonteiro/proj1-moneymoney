@@ -1,0 +1,51 @@
+<h1>Login</h1>
+
+<ng-container *ngIf="isCreating; else loginTemplate">
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="loginModel.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="loginModel.password" name="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="loginModel.password" name="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="loginModel.password" name="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="loginModel.password" name="password">
+    </mat-form-field>
+
+    <button type="submit" (click)="login(loginModel)">Criar</button>
+  </form>
+</ng-container>
+
+<ng-template #loginTemplate>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="loginModel.email" name="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="loginModel.password" name="password">
+    </mat-form-field>
+
+    <button type="submit" (click)="login(loginModel)">Logar</button>
+  </form>
+</ng-template>
+
+{{loginModel | json}}
+
+

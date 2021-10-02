@@ -9,9 +9,17 @@ import {environment} from '../../environments/environment';
 })
 export class UserService {
 
-  user: IUser;
+  private _user: IUser;
 
+  set user(user: IUser) {
+    this._user = user;
+  }
+
+  get user(): IUser {
+    return this._user;
+  }
   urlPath = environment.urlPath;
+
   httpHeader = environment.headers;
 
   constructor(private http: HttpClient) { }
@@ -20,5 +28,13 @@ export class UserService {
     return this.http.post<IUser>(`${this.urlPath}/user/login`, {email, password}, {
       headers: new HttpHeaders(this.httpHeader),
     });
+  }
+
+  createUser(user: IUser): Observable<IUser> {
+    return this.http.post<IUser>(`${this.urlPath}/user`, user, { headers: new HttpHeaders(this.httpHeader) });
+  }
+
+  logout(): void {
+    localStorage.clear();
   }
 }
