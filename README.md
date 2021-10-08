@@ -19,7 +19,17 @@ Para o Frontend resolvermos utilizar o [Angular](https://angular.io/) como frame
 
 **Backend**
 
-1.  
+1.  Primeiro precisamos criar o arquivo .jar, para isso precisamos ir a pasta do backend e rodar o comando:
+    ```
+    cd backend
+    mvn install
+    ```
+1.  Com isso temos o arquivo .jar pronto. Agora só precisamos ir até onde ele foi instalado e roda-lo:
+    ```
+    cd target
+    java -jar money-money-0.0.1-SNAPSHOT.jar
+    ```
+1.  Pronto agora o backend ja está rodando, agora só usufruir das apis como quiser usando o endereço `https://localhost:8080`
 
 **Frontend**
 
